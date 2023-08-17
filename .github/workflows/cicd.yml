@@ -49,7 +49,7 @@ jobs:
                 "password": "${{ secrets.ANYPOINT_PASSWORD }}"
             },
             {
-                "id": "cloudhub-deploy",
+                "id": "rtfk.repository",
                 "username": "${{ secrets.ANYPOINT_USERNAME }}",
                 "password": "${{ secrets.ANYPOINT_PASSWORD }}"
             },
@@ -59,7 +59,7 @@ jobs:
               "password": "${{ secrets.ANYPOINT_PASSWORD }}"
             },
             {
-                "id": "releases-ee",
+                "id": "mulesoft-releases",
                 "username": "${{ secrets.RELEASES_USERNAME }}",
                 "password": "${{ secrets.RELEASES_PASSWORD }}"
             }
@@ -68,10 +68,6 @@ jobs:
       # maven build command, could add other flags if needed
       - name: Build
         run: mvn -B clean package --file pom.xml
-        
-        
- #NEW CONTENT        
-
 
  # Step to upload the artifact to Exchange
   exchange:
@@ -94,12 +90,12 @@ jobs:
               "password": "${{ secrets.ANYPOINT_PASSWORD }}"
           },
           {
-              "id": "anypoint-exchange-v3-student-deployment",
+              "id": "rtfk.repository",
               "username": "${{ secrets.ANYPOINT_USERNAME }}",
               "password": "${{ secrets.ANYPOINT_PASSWORD }}"
           },
           {
-                "id": "releases-ee",
+                "id": "mulesoft-releases",
                 "username": "${{ secrets.RELEASES_USERNAME }}",
                 "password": "${{ secrets.RELEASES_PASSWORD }}"
             }]
@@ -129,7 +125,7 @@ jobs:
               "password": "${{ secrets.ANYPOINT_PASSWORD }}"
           },
           {
-                "id": "cloudhub-deploy",
+                "id": "rtfk.repository",
                 "username": "${{ secrets.ANYPOINT_USERNAME }}",
                 "password": "${{ secrets.ANYPOINT_PASSWORD }}"
           }]
@@ -137,4 +133,4 @@ jobs:
       env:
         AUTHOR: "Mr Developer"
       run: |
-        mvn clean deploy --file pom.xml -DmuleDeploy -Dap.client_id="${{ secrets.AP_CLIENT_ID }}" -Dap.client_secret="${{ secrets.AP_CLIENT_SECRET }}"   
+        mvn clean deploy --file pom.xml -DmuleDeploy -Dusername="${{ secrets.ANYPOINT_USERNAME } -Dpassword="${{ secrets.ANYPOINT_PASSWORD }}" -Drtf.app.name="auto-fal"
