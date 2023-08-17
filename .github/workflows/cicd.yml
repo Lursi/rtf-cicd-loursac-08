@@ -133,4 +133,4 @@ jobs:
       env:
         AUTHOR: "Mr Developer"
       run: |
-        mvn clean deploy --file pom.xml -DmuleDeploy -Dusername="${{ secrets.ANYPOINT_USERNAME } -Dpassword="${{ secrets.ANYPOINT_PASSWORD }}" -Drtf.app.name="auto-fal" -Dapp.inbound.url="auto-fal.mulesoft-training.com/*" -Ddeployment.target="rtf-facundo-08"
+        mvn clean deploy --file pom.xml -DmuleDeploy -Dusername="${{ secrets.ANYPOINT_USERNAME } -Dpassword="${{ secrets.ANYPOINT_PASSWORD }}" -Drtf.app.name="auto-fal" -Dapp.inbound.url="http://auto-fal.mulesoft-training.com/*" -Ddeployment.target="rtf-facundo-08"
